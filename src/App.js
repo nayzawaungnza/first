@@ -16,13 +16,20 @@ class App extends React.Component{
       {id:2, name:'Orange', price:0.88},
       {id:3, name:'Seed', price:0.77}
     ]
-  };
+  }
+
+  nameRef = React.createRef();
+  priceRef = React.createRef();
+
   add = () => {
     let id = this.state.items.length + 1;
+    let name = this.nameRef.current.value;
+    let price = this.priceRef.current.value;
+
     this.setState({
       items:[
         ...this.state.items,
-      {id,name:`Item ${id}`, price:0.01 * id}
+      {id,name, price}
       ]
     })
   }
@@ -37,6 +44,8 @@ class App extends React.Component{
             )
           })}
         </ul>
+        <input type="text" ref={this.nameRef} /><br/>
+        <input type="text" ref={this.priceRef} /><br/>
         <button onClick={this.add}>Add</button>
       </div>
 
