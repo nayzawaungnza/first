@@ -17,6 +17,15 @@ class App extends React.Component{
       {id:2, name:'Seed', price:0.77}
     ]
   };
+  add = () => {
+    let id = this.state.items.length + 1;
+    this.setState({
+      items:[
+        ...this.state.items,
+      {id,name:`Item ${id}`, price:0.01 * id}
+      ]
+    })
+  }
   render(){
     return (
       <div>
@@ -28,6 +37,7 @@ class App extends React.Component{
             )
           })}
         </ul>
+        <button onClick={this.add}>Add</button>
       </div>
 
     )
