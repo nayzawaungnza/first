@@ -14,7 +14,7 @@ class App extends React.Component{
     items:[
       {id:1, name:'Apple', price:0.99},
       {id:2, name:'Orange', price:0.88},
-      {id:2, name:'Seed', price:0.77}
+      {id:3, name:'Seed', price:0.77}
     ]
   };
   add = () => {
@@ -33,7 +33,7 @@ class App extends React.Component{
         <ul>
           {this.state.items.map(i=>{
             return(
-              <Item name={i.name} price={i.price}></Item>
+              <Item key={i.id} name={i.name} price={i.price}></Item>
             )
           })}
         </ul>
